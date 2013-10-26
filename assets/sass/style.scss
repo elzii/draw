@@ -46,3 +46,13 @@
   @include border-radius(5px);
   border:2px solid darken(#f8f3e3, 3);
 }
+
+
+/* SELECT FIX
+================================================== */
+* {
+  user-select:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+}

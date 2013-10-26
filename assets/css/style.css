@@ -7507,3 +7507,12 @@ footer.default .footer-inner {
   border-radius: 5px;
   border: 2px solid #f5eed7;
 }
+
+/* SELECT FIX
+================================================== */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
