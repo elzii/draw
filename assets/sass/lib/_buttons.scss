@@ -1,0 +1,340 @@
+/* _buttons-advanced.scss */
+
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                                  BUTTON                                  */
+/*                                                                          */
+/* ======================================================================== */    
+
+/* BTN 
+ * ---
+ * @include btn(20px, bold, #2a2a2a, #fbfbfb, transparent, none, 52, 15px);
+ *
+=========================================================================== */
+@mixin btn(
+  $bg_color-1:  #b9141e,
+  $font_color:  #ffffff,
+  $font_size:   1em,
+  $font_weight: normal,
+  $bg_color-2:  transparent,
+  $border:      none,
+  $height:      52,
+  $padding:     0 25px,
+  $text_align:  center,
+  $b_radius:    3px
+) {
+  // @if $bg_color-1 == nil {} 
+  //   @else { color: $myVariable; }
+
+  // inline-block IE compatibility hack
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  position:relative;
+  height:         #{$height}px;
+  // line-height:    #{$height +2}px;
+  line-height:    1;
+  background:     $bg_color-1;
+  border:         $border;
+  font-weight:    $font_weight;
+  font-size:      $font_size;
+  color:          $font_color;
+  padding:        $padding;
+  text-align:     $text_align;
+  
+  @include border-radius($b_radius);
+
+  // backface visibility hack to fix chrome bug
+  @include backface; * {@include backface;}
+
+  // transition redundancy if mixin not applied to anchor
+  @include transition(all 150ms ease-in-out);
+}
+
+
+
+
+/* BTN HOVER METHOD
+ * ----------------
+ * @include btn-hover-method();
+ *
+=========================================================================== */
+@mixin btn-hover-method(
+  $method:      'normal',
+  $font_color:  #2f7499,
+  $bg_color:    #ffffff
+) {
+  // NORMAL
+  @if $method == 'normal' {
+      &:hover {
+        color: lighten($font_color, 5);
+        background-color: darken($bg_color, 5);
+      }
+    }
+  // NO CHANGE
+  @if $method == 'nochange' {
+    &:hover {
+      color: $font_color;
+      background-color: $bg_color;
+    }
+  }
+  // GLOW
+  @if $method == 'glow-white' {
+    &:hover {
+      @include box-shadow(1px 1px 50px 2px rgba(white, 0.4));
+      color: darken($font_color, 15);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                                BUTTON BEFORE                             */
+/*                                                                          */
+/* ======================================================================== */    
+
+/* BTN BEFORE BASICS
+ * -----------------
+ * @include btn-before(absolute, 1.5, #000);
+ *
+=========================================================================== */
+@mixin btn-before-basics(
+  $position:        relative,
+  $top:             0,
+  $left:            0,
+  $width:           30%,
+  $height:          100%,
+  $bg_color:        transparent
+) {
+  &:before {
+    position:$position;
+    top:$top;
+    left:$left;
+    height:#{$height};
+    width:#{$width};
+    // margin-top:-#{ (($height/2) + 4)/2 }px;
+    background-color:$bg_color;
+  }
+}
+
+/* BTN BEFORE FONT
+ * ---------------
+ * @include btn-before-font(1.4em, bold, #fff, "socialico");
+ *
+=========================================================================== */
+@mixin btn-before-font(
+  $font_size:       1.6em,
+  $font_weight:     normal,
+  $font_color:      inherit,
+  $font_family:     "pictos",
+  $padding:         0 20px 0 0,
+  $line_height:     inherit
+) {
+  &:before {
+    font-size:    $font_size;
+    padding:      $padding;
+    font-weight:  $font_weight;
+    color:        $font_color;
+    font-family:  $font_family;
+  }
+}
+
+
+/* BTN BEFORE ICON NAME
+ * --------------------
+ * @include btn-before-icon-name();
+ *
+=========================================================================== */
+@mixin btn-before-icon-name(
+  $icon_name:    'group'
+) {
+  &:before {
+    // GROUP / [3 people] (pictos)
+    @if $icon_name == 'group'  { content: 'g'; }
+    // HEART [<3 shape] (pictos)
+    @if $icon_name == 'heart'  { content: 'k'; }
+    // HELP/ [life preserver] (pictos)
+    @if $icon_name == 'help'   { content: 'h'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon_name == 'search' { content: 's'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon_name == 'chat'   { content: 'q'; }
+  }
+}
+
+
+
+/* BTN BEFORE ICON
+ * ---------------
+ * @include btn-before-icon();
+ *
+=========================================================================== */
+@mixin btn-before-icon(
+  $icon_char: 'W'
+) {
+  &:before {
+    content:$icon_char;
+  }
+}
+
+
+
+
+/* BTN BEFORE HOVER METHOD
+ * -----------------------
+ * @include btn-before-hover-method();
+ *
+=========================================================================== */
+@mixin btn-before-hover-method(
+  $before_method:    'scale-115',
+  $duration:  .35s
+) {
+
+  // ----------- START DEFAULTS -------------
+  &:before {
+    @include transition(transform);
+    @include transition-duration($duration);
+  }
+  // ------------ END DEFAULTS --------------
+
+  // ROTATE (spin a full circle)
+  @if $before_method == 'rotate' {
+    &:hover {
+      &:before {
+        @include transform(rotate(360deg));
+      }
+    }
+  }
+  // TILT-RIGHT (rotate 15deg clockwise)
+  @if $before_method == 'tilt-right' {
+    &:hover {
+      &:before {
+        @include transform(rotate(15deg));
+      }
+    }
+  }
+  // SCALE UP (grow by 135%)
+  @if $before_method == 'scale-135' {
+    &:hover {
+      &:before {
+        @include transform(scale(1.35));
+      }
+    }
+  }
+  // SCALE UP (grow by 115%)
+  @if $before_method == 'scale-115' {
+    &:hover {
+      &:before {
+        @include transform(scale(1.15));
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                               BUTTON CLASSES                             */
+/*                                                                          */
+/* ======================================================================== */    
+
+
+/* 
+  BUTTON EXAMPLE HTML
+  --------------------
+  <div style="background-color:#ccc;width:100%;height:auto;padding:50px;margin-top:20px;margin-bottom:20px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+    <a href="#" class="btn btn-tab icon-group">.btn .btn-tab</a>
+    <a href="#" class="btn btn-tab transparent icon-pulse">.btn .btn-tab .transparent</a>
+    <a href="#" class="btn btn-tab secondary icon-meter">.btn .btn-tab .secondary</a>
+    <a href="#" class="btn btn-tab secondary-transparent icon-piechart">.btn .btn-tab .secondary-transparent</a>
+  </div>
+ */
+
+.btn, %btn {
+  @include btn(#2f7499, #ffffff, 17px, normal, transparent, none, auto, 20px 25px, 5px );
+}
+
+
+.btn-tab {
+  @extend %btn;
+
+  // PRIMARY (default)
+  @include btn-before-basics();
+  @include btn-before-font(25px, normal, #ffffff, "pictos");
+  @include xbc-transparent-bg(1.0, #2f7499, 47, 116, 153);
+
+  // PRIMARY (transparent)
+  &.transparent {
+    @include xbc-transparent-bg(0.10, #2f7499, 47, 116, 153);
+    color:#2f7499;
+    &:before {color:#2f7499;}
+  }
+
+  // SECONDARY
+  &.secondary {
+    color:#2f7499;
+    &:before {color:#2f7499;} 
+    @include xbc-transparent-bg(1.00, #ffffff, 255, 255, 255);
+  }
+
+  // SECONDARY (transparent)
+  &.secondary-transparent {
+    color:#ffffff;
+    &:before {color:#ffffff;} 
+    @include xbc-transparent-bg(0.10, #ffffff, 255, 255, 255);
+  }
+}
+
+// BUTTON TAG CLASSES
+button {
+  position:relative;
+  font-size:initial;
+  text-transform:none;
+
+  &.no-appearance, &.empty {
+    @include appearance(none);
+    outline:0;
+    border:0;
+    background-color:transparent;
+  }
+  &.open {
+    .icon-bar {display:none;}
+    text-align:center;
+    font-size:em(24px);
+    color:$colorAnchorDefault;
+    width:34px;
+    line-height:1;
+    
+    &:before {
+      font-family:"pictos";
+      content:'*';
+    }
+    // &:before {
+    //   position:absolute;top:50%;left:50%;
+    //   margin:-9px 0 0 -9px;
+    //   width:18px;height:18px;
+    //   content:'*';
+    //   text-transform:none;
+    //   color:$colorAnchorDefault;
+    //   font-size:em(22px);
+    // }
+  }
+}

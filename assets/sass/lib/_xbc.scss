@@ -1,0 +1,83 @@
+/* _xbc.scss */
+
+/* BOX-SHADOW
+================================================== */
+@mixin xbc-drop_shadow($hex:#969696,$x:1,$y:1) {
+  filter:progid:DXImageTransform.Microsoft.DropShadow(color=$hex offx=$x, offy=$y)
+}
+
+
+/* IE BACKGROUND SIZE
+================================================== */
+// used to make a background image (including alpha images) scale to the size of it's container in ie7 & ie8
+@mixin xbc-bg_scale($filename) {
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$filename', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$filename', sizingMethod='scale')";
+}
+
+/* IE BG GRADIENTS
+================================================== */
+@mixin xbc-gradient($top,$bottom) {
+  background: $top;
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom));
+  background: -webkit-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -o-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -ms-linear-gradient(top, $top 0%,$bottom 100%);
+  background: linear-gradient(top, $top 0%,$bottom 100%);
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#{$top}', endColorstr='#{$bottom}');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$top}', endColorstr='#{$bottom}')";
+}
+
+/* RGBA with IE support
+================================================== */
+@mixin xbc-rgba($hex, $alpha, $ie: 1) {
+    @if $ie == 1 {
+        // this formula is not accurate enough, will be fixed with sass 3.1
+    $hexopac: '#' + ceil((($alpha * 255)/16) *10) + $hex;
+    background-color: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}}');
+    -ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$hexopac}',EndColorStr='#{$hexopac}'));
+    }
+    @else {
+        background-color: $hex;
+        background-color: rgba(red($hex), green($hex), blue($hex), $alpha);
+    }
+}
+
+
+/* OPACITY
+================================================== */
+@mixin xbc-opacity($alpha) {
+  // IE 8
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$alpha*100)";
+  // IE 5-7
+  filter: alpha(opacity=$alpha*100);
+  // Real Browsers
+  -webkit-opacity: $alpha;
+  -moz-opacity: $alpha;
+  -khtml-opacity: $alpha;
+  opacity: $alpha;
+}
+
+
+/* TRANSPARENT BG
+/* USAGE:       @include trans-bg(.15,#000000,0,0,0);
+================================================== */
+@mixin xbc-transparent-bg($alpha:.15,$color:#000000,$r:0,$g:0,$b:0) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
+
+
+@mixin xbc-background-cover($image-path) {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_path($image-path)}, sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=#{image_path($image-path)}, sizingMethod='scale')";
+  background-image: none;
+}
+
+

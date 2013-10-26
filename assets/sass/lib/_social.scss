@@ -1,0 +1,15 @@
+/* _social.scss */
+
+.menu-social {
+  font-size:initial;
+  @include inline-block;
+  @include ul-blank;
+
+  li {
+    @include inline-block;
+    font-size:em(50px);
+    line-height:1;
+
+    a { @extend %font-baseline; }
+  }
+}

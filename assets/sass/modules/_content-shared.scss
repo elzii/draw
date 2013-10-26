@@ -1,0 +1,47 @@
+/* _content-shared.scss */
+
+
+
+/* #MAIN
+================================================== */
+#main {
+
+  &.default {margin-top:em(55px);min-height:400px;}
+  &.blog    {}
+  &.page    {margin-top:em(55px);}
+  &.single  {margin-top:em(55px);}
+}
+
+
+  /* .content
+  ================================================== */
+  #content{
+    width:100%;
+    
+    &.has_sidebar {@extend %span9;}
+    &.full-width {  }
+  }
+
+    /* ARTICLE
+    ================================================== */
+    article {
+
+    }
+
+
+
+
+  /* SIDEBAR
+  ================================================== */
+  #main .sidebar{
+    @extend %span3;
+
+    a {
+      &:hover {text-decoration:underline;}
+    }
+
+    .sidebar-inner {
+      
+    }
+
+  }

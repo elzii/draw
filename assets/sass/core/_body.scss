@@ -1,0 +1,44 @@
+/* _body.scss */
+
+html {
+  font-size: 100%; /* ~10px */ 
+}
+body { 
+  font-family: $default, "proxima-nova", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px; /* ~10px */
+  text-rendering: optimizeLegibility; 
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%; 
+  -ms-text-size-adjust: 100%;
+  color:$colorTextDefault;
+  background-color:$backgroundColorBody;
+
+}
+
+a { color:$colorAnchorDefault; &:hover {} }
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+
+
+
+.menu-menu-1-container{
+  float:right;
+}
+
+.menu-menu-1-container ul{
+  display: inline;
+}
+
+.menu-menu-1-container ul li{
+  display: inline;
+  margin-left: 30px;
+}
+
+.post{
+  padding-bottom:10px;
+  border-bottom: 1px solid #d3d3d3;
+}

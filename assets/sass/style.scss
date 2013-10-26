@@ -1,0 +1,48 @@
+/* style.scss */
+ 
+/* SASS Libraries */
+@import "compass",
+        "ffw";
+
+/* Reset */
+@import "vendor/normalize"; 
+
+/* Base & Vars */
+@import "config",
+        "core/grid",
+        "core/base",
+        "core/typography",
+        "core/fonts",
+        "core/body";
+
+/* Libraries */
+@import "lib/functions",
+        "lib/extenders",
+        "lib/helpers", 
+        "lib/forms",
+        "lib/social",
+        "lib/icons",
+        "lib/buttons",
+        "lib/shapes",
+        "lib/modals",
+        "lib/animate";
+
+/* Modules & Components */ 
+@import "modules/header",
+        "modules/navigation",
+        "modules/hero",
+        "modules/content-shared",
+        "modules/footer";
+
+
+
+/* CANVAS
+================================================== */
+#c {
+  display:block;
+  position:relative;
+  width:100%;height:500px;
+  background-color:#fffefc;
+  @include border-radius(5px);
+  border:2px solid darken(#f8f3e3, 3);
+}

@@ -1,0 +1,261 @@
+/* _mixins.scss */
+
+@import "lib/functions",
+        "lib/xbc";
+
+
+/* BORDER RADIUS
+================================================== */
+@mixin border-radius($values) {
+  -webkit-border-radius: $values;
+     -moz-border-radius: $values;
+          border-radius: $values;
+}
+
+
+
+/* TRANSPARENT BACKGROUND
+================================================== */
+@mixin transparent-bg($color:#000000,$alpha:.15,$r:0,$g:0,$b:0) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
+
+
+/* UL-BLANK
+================================================== */
+@mixin ul-blank() {
+  margin:0;padding:0;
+  list-style-type:none;
+
+  li {margin:0;padding:0;}
+}
+
+/* INLINE-BLOCK
+================================================== */
+@mixin inline-block( $lh_inherit:true ) {
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  
+  @if $lh_inherit == true {
+    // line-height:inherit;
+  }
+}
+
+/* HEIGHTS / WIDTHS
+================================================== */
+@mixin heights($height:auto,$important:'') {
+  
+  @if $important == '' or $important == null {
+    height:$height;min-height:$height;max-height:$height;
+  }
+  @if $important == 'important' or $important == '!' {
+    height:$height !important;min-height:$height !important;max-height:$height !important;
+  }
+}
+
+@mixin widths($width:auto,$important:'') {
+  
+  @if $important == '' or $important == null {
+    width:$width;min-width:$width;max-width:$width;
+  }
+  @if $important == 'important' or $important == '!' {
+    width:$width !important;min-width:$width !important;max-width:$width !important;
+  }
+}
+
+
+
+/* BACKFACE VISIBILITY FIX
+/* apply to elements with flicker bug on transform
+================================================== */
+@mixin backface($visibility: hidden){
+  -webkit-backface-visibility: $visibility;
+  // -moz-backface-visibility:    $visibility;
+  -ms-backface-visibility:     $visibility;
+}
+
+
+/* BG-SHORTHAND
+================================================== */
+@mixin bg-shorthand(
+  $image:     '',
+  $repeat:    no-repeat,
+  $position:  0 0,
+  $size:      auto auto,
+  $color:     transparent
+) {
+
+  @if $image == false or $image == '' {
+    // nothing
+  } @else {
+    background-image:     url(#{$image});
+  }
+
+  @if $size == 'cover' {
+    @include background-size(cover);
+  } @else {
+    background-size:      $size;  
+  }
+
+    background-repeat:    $repeat;
+    background-position:  $position;
+    background-color:     $color;
+}
+
+/* BG DEFAULTS (similar to above)
+================================================== */
+@mixin bg-defaults(
+  $bg-color:      transparent,
+  $bg-position:   0 0,
+  $bg-repeat:     no-repeat,
+  $bg-size:       100% auto
+) {
+  background-color:$bg-color;
+  background-position: $bg-position;
+  background-size: $bg-size;
+  background-repeat: $bg-repeat;
+}
+
+@mixin bg-img($bg-url) {
+  background-image:url($bg-url);
+}
+
+@mixin bg-base64($base64string){
+  background-image:url('data:image/png;base64,#{$base64string}');
+}
+
+
+/* UL BASE64 LI
+================================================== */
+@mixin base64-li(
+  $li-margin:   0 0 .2em 0,
+  $li-padding:  26px,
+  $li-bgbase64: 'iVBORw0KGgoAAAANSUhEUgAAAA4AAAAKCAYAAACE2W/HAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5ODdGMkQ2RkYyM0IxMUUyQkM0QUE1QTZGQzE0RTFCQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5ODdGMkQ3MEYyM0IxMUUyQkM0QUE1QTZGQzE0RTFCQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk4N0YyRDZERjIzQjExRTJCQzRBQTVBNkZDMTRFMUJCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk4N0YyRDZFRjIzQjExRTJCQzRBQTVBNkZDMTRFMUJCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+bz1gsgAAAIpJREFUeNpi/P//PwMx4JaGkQGQOgDED4DYgZEYjUia+KFCG5nI0AQCD5igkgJQBcRoWqh241wBE0gTVPI8kJ1AhCawGhYgLgBifajEfKAGEH0BnyYQYLypbojNZHSAogkEmIACINMdgPgjsZrAGkEEHs1YNYGdihyP0ADZAMSgAFsACj1cbgcIMAC9akFzpsnfZwAAAABJRU5ErkJggg==',
+  $a-color: #212121,
+  $a-hover: #888888
+) {
+  li {
+    margin:$li-margin;
+    @include bg-shorthand(
+      'data:image/png;base64,#{$li-bgbase64}',
+      no-repeat,
+      0 50%,
+      auto auto
+    );
+    padding-left:$li-padding;
+
+    a { 
+      color:$a-color; 
+      &:hover {color:$a-hover} /* color of checkmark */ 
+    }
+  }
+}
+
+
+/* SUSY: ALPHA
+================================================== */
+@mixin alpha(){
+  float:left;
+  margin-right:0;
+}
+
+@mixin flush-columns( $n, $d, $float: auto, $clear: false ) {
+  width: #{($n/$d)*100%};
+  // width: percentage($n, $d);
+  float: $float;
+
+  @if $clear == true {
+    @include clearfix;
+  }
+}
+
+
+/* GRID DYNAMIC
+================================================== */
+@mixin column-fluid($width:100%,$margin_left:false,$margin_right:false) {
+    display:inline;
+    float:left;
+    width:$width;
+    
+
+    @if $width == third  { 
+         width:33.333333337%;
+        
+        @if $margin_right == true and $margin_left == false { 
+            width:32.5%;margin-right:1.25%; &:last-of-type {margin-right:0;} 
+        }
+        @if $margin_left == true and $margin_right == false { 
+            width:32.5%;margin-left:1.25%; &:last-of-type {margin-left:0;} 
+        }
+    }
+
+    @if $width == half  { 
+        width:49.5%; 
+        
+        @if $margin_left == true    { margin-left:1%; &:last-of-type {margin-left:0;} }
+        @if $margin_right == true   { margin-right:1%; &:last-of-type {margin-right:0;} }
+    }
+    
+    @if $width == fourth  { 
+         width:25%;
+        
+        @if $margin_right == true and $margin_left == false { 
+            width:23.5%;margin-right:2%; &:last-of-type {margin-right:0;} 
+        }
+        @if $margin_left == true and $margin_right == false { 
+            width:23.5%;margin-left:2%; &:last-of-type {margin-left:0;} 
+        }
+    }
+}
+
+
+/* TABLE / TABLE CELL
+================================================== */
+// table
+@mixin table($text_align: center){
+  display:table;
+  text-align:$text_align;
+}
+  .table {@include table;}
+
+// table-cell  
+@mixin table-cell(){
+  display:table-cell;
+  vertical-align:middle;
+}
+  .table-cell {@include table-cell;}
+
+
+
+/* PSEUDO-ICON-FONT
+================================================== */
+@mixin pseudo-icon(
+  $location:  after,
+  $content:   "u",
+  $font:      "arrrows"
+
+) {
+  &:#{$location} {
+    text-transform:none;
+    position:relative;
+    line-height:inherit;
+    color:inherit;
+    content:$content;
+    font-family:$font;
+
+    @content;
+  }
+}
+
+/* EMPTY-BUTTON
+================================================== */
+@mixin button-empty() {
+  @include appearance(none);
+  outline:0;
+  border:0;
+  background-color:transparent;
+}

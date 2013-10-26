@@ -1,0 +1,123 @@
+/* _modals.scss */
+
+
+/* MODAL SETTINGS
+================================================== */
+$modal-overlay-bg-color         : #313131;
+$modal-overlay-bg-transparency  : 0.75;
+$modal-bg-color                 : #fff;
+$modal-text-color               : #313131;
+$modal-box-shadow               : true;
+$modal-border-radius            : 3px;
+$modal-header-bg-color          : #fafafa;
+$modal-footer-bg-color          : #fafafa;
+
+
+
+
+/* MODAL-OVERLAY
+================================================== */
+.modal-overlay {
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;
+  cursor:pointer;
+  @include xbc-transparent-bg($modal-overlay-bg-transparency, $modal-overlay-bg-color);
+  /* TRANSITION */
+  @include transition(all 100ms linear);
+  z-index:0;
+  visibility: hidden;
+  @include opacity(0);
+
+  &.show {
+    z-index:1000;
+    visibility: visible;
+    @include opacity(1);
+  }
+}
+
+
+/* MODAL
+================================================== */
+.modal {
+  position:fixed;left:50%;top:50%; 
+  height:auto;
+  background-color:$modal-bg-color;
+  color:$modal-text-color;  
+  /* DEFAULT - same as .medium */
+  width:500px;margin-left:-250px;
+  font-size:initial;
+  @include border-radius($modal-border-radius);
+  /* BOX SHADOW */
+  @if $modal-box-shadow == true {
+    @include box-shadow(0px 0px 7px -3px rgba(black, 0.15));
+  }
+  
+  /* TRANSITION */
+  @include transition(transform);
+  @include transition-duration(250ms);
+  @include transform(scale(0.85));
+  z-index:0;
+  visibility: hidden;
+  @include opacity(0);
+
+  &.show {
+    @include transition(transform);
+    @include transition-duration(250ms);
+    @include transform(scale(1.00));
+    z-index:1100;
+    visibility: visible;
+    @include opacity(1);
+  }
+
+  &.small   {width:300px;margin-left:-150px;}
+  &.medium  {width:500px;margin-left:-250px;}
+  &.large   {width:750px;margin-left:-375px;}
+
+  // HIDE <br>
+  br {display:none;}
+
+  // BUTTON (.modal-close)
+  button {
+    position:absolute;top:12px;right:10px;
+    z-index:1100;
+    @include button-empty();
+    font-size:initial;
+
+    &:before {
+      font-family:"pictos";
+      font-size:em(20px);
+      content:'*';
+    }
+    &:hover {color:$colorAnchorDefault;}
+  }
+  
+  header, main, footer {width:100%;height:auto;}
+  
+  // HEADER (.modal-header)
+  header {
+    @include border-radius($modal-border-radius $modal-border-radius 0 0);
+    padding:17px 20px 13px 20px;
+    background-color: $modal-header-bg-color;
+    border-bottom:1px solid darken($modal-header-bg-color,3);
+    line-height:1;
+    font-size:em(17px);
+    text-transform: uppercase;
+    font-weight:bold;
+  }
+
+  // MAIN (.modal-body)
+  .modal-body {
+    font-size:em(16px);
+    font-family:$serif;
+    background-color: transparent;
+    padding:15px 20px;
+  }
+
+  // FOOTER (.modal-footer)
+  footer {
+    @include border-radius(0 0 $modal-border-radius $modal-border-radius);
+    background-color: $modal-footer-bg-color;
+    border-top:1px solid darken($modal-footer-bg-color,3);
+    padding:0px 20px 20px 20px;
+  }
+}

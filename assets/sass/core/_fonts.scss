@@ -1,0 +1,32 @@
+/* _fonts.scss */
+
+@mixin fff($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('#{$file-path}.eot');
+    src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+         url('#{$file-path}.woff')                     format('woff'),
+         url('#{$file-path}.ttf')                      format('truetype'),
+         url('#{$file-path}.svg##{$font-family}')      format('svg');
+  
+  }
+}
+
+/* FONTS
+================================================== */
+@include fff(edmond, '../fonts/edmond/Edmondsans-Regular', normal);
+@include fff(edmond, '../fonts/edmond/Edmondsans-Medium', 500);
+@include fff(edmond, '../fonts/edmond/Edmondsans-Bold', bold);
+
+// @include fff(opensans, '../fonts/opensans/OpenSans-Light', 300);
+// @include fff(opensans, '../fonts/opensans/OpenSans-Italic', italic);
+
+@include fff(opensans-condensed, '../fonts/opensans-condensed/OpenSans-CondLight', 300);
+
+@include fff(pictos, '../fonts/pictos/pictos', normal);
+@include fff(arrrows, '../fonts/arrrows/arrrows', 300);
+@include fff(arrrows, '../fonts/arrrows/arrrows-bold', bold);
+@include fff(socialico, '../fonts/socialico/socialico', normal);

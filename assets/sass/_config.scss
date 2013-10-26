@@ -1,0 +1,60 @@
+/* _variables.scss */
+
+
+/* GRID SETTINGS                                          | **REQUIRED**
+======================================================================== */
+    $widecreen              : 1140px;
+    $desktop                : 960px;
+    $tablet                 : 768px;
+    $mobile-portrait        : 320px;
+    $mobile-landscape       : 480px;
+
+    $columns                : 12;
+    $margin                 : 10px;
+    $padding                : 10px;
+
+    $responsive             : true;
+    $from-direction         : left;
+
+
+
+/* COLORS                                                 | **REQUIRED**
+======================================================================== */
+
+// Primary
+$colorPrimary           : #2a2a2a;
+$colorPrimaryDark       : #1c1c1c;
+$colorPrimaryLight      : adjust_hue(saturate(darken(#2a2a2a, 13), 21), 0);
+
+// Secondary
+$colorSecondary         : #eae9e9;
+$colorSecondaryDark     : #363636;
+$colorSecondaryLight    : #7c7c7c;
+
+// Tertiary
+$colorTertiary          : #dddddd;
+$colorTertiaryDark      : #cccccc;
+$colorTertiaryLight     : #cccccc;
+
+// Text
+$colorTextDefault       : #433f3e;
+$colorTextLight         : #a3a3a3;
+$colorAnchorDefault     : #a89041;
+
+// Backgrounds
+$backgroundColorBody    : #f9f6ed;
+$backgroundColorHeader  : #f8f3e3;
+$backgroundColorFooter  : #605d52;
+
+
+
+/* FONTS                                                  | **REQUIRED**
+======================================================================== */
+$default      : "edmond", Helvetica, Arial, sans-serif;
+$default-alt  : "opensans-condensed", "Helvetica Neue";
+$serif        : Georgia, serif;
+$pictos       : "pictos";
+$arrrows      : "arrrows";
+$social       : "socialico";
+$socialico    : "socialico";
+

@@ -1,0 +1,515 @@
+/* _forms.scss */
+
+/*!
+Pure v0.3.0
+Copyright 2013 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+input[type="submit"] {
+    /* Structure */
+    min-height:44px;
+    display: inline-block;
+    *display: inline; /*IE 6/7*/
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+input[type="submit"]::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/*csslint unqualified-attributes:false, outline-none:false*/
+
+input[type="submit"] {
+    font-size: 100%;
+    *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
+    *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+    padding: 0.5em 1.5em 0.5em;
+    color: #444; /* rgba not supported (IE 8) */
+    color: rgba(0, 0, 0, 0.80); /* rgba supported */
+    *color: #444; /* IE 6 & 7 */
+    border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+    /* Transitions */
+    -webkit-transition: 0.1s linear -webkit-box-shadow;
+    -moz-transition: 0.1s linear -moz-box-shadow;
+    -ms-transition: 0.1s linear box-shadow;
+    -o-transition: 0.1s linear box-shadow;
+    transition: 0.1s linear box-shadow;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+    background-image: -ms-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+}
+input[type="submit"]:focus {
+    outline: 0;
+}
+input[type="submit"]:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+}
+
+input[type="submit"][disabled] {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="url"],
+form input[type="date"],
+form input[type="month"],
+form input[type="time"],
+form input[type="datetime"],
+form input[type="datetime-local"],
+form input[type="week"],
+form input[type="number"],
+form input[type="search"],
+form input[type="tel"],
+form input[type="color"],
+form select,
+form textarea {
+    min-height:44px;
+    padding: 0.6em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 0.8em;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-transition: 0.3s linear border;
+    -moz-transition: 0.3s linear border;
+    -ms-transition: 0.3s linear border;
+    -o-transition: 0.3s linear border;
+    transition: 0.3s linear border;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="url"]:focus,
+form input[type="date"]:focus,
+form input[type="month"]:focus,
+form input[type="time"]:focus,
+form input[type="datetime"]:focus,
+form input[type="datetime-local"]:focus,
+form input[type="week"]:focus,
+form input[type="number"]:focus,
+form input[type="search"]:focus,
+form input[type="tel"]:focus,
+form input[type="color"]:focus,
+form select:focus,
+form textarea:focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+}
+
+form input[type="file"]:focus,
+form input[type="radio"]:focus,
+form input[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline: 1px auto #129FEA;
+}
+form .pure-checkbox,
+form .pure-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+form input[type="text"][disabled],
+form input[type="password"][disabled],
+form input[type="email"][disabled],
+form input[type="url"][disabled],
+form input[type="date"][disabled],
+form input[type="month"][disabled],
+form input[type="time"][disabled],
+form input[type="datetime"][disabled],
+form input[type="datetime-local"][disabled],
+form input[type="week"][disabled],
+form input[type="number"][disabled],
+form input[type="search"][disabled],
+form input[type="tel"][disabled],
+form input[type="color"][disabled],
+form select[disabled],
+form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+form input[readonly],
+form select[readonly],
+form textarea[readonly] {
+    background: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+form input:focus:invalid,
+form textarea:focus:invalid,
+form select:focus:invalid {
+    color: #b94a48;
+    border: 1px solid #ee5f5b;
+}
+form input:focus:invalid:focus,
+form textarea:focus:invalid:focus,
+form select:focus:invalid:focus {
+    border-color: #e9322d;
+}
+form input[type="file"]:focus:invalid:focus,
+form input[type="radio"]:focus:invalid:focus,
+form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+form select {
+    border: 1px solid #ccc;
+    background-color: white;
+}
+form select[multiple] {
+    height: auto;
+}
+form label {
+    margin: 0.5em 0 0.2em;
+    font-size: 90%;
+}
+form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    font-size: 125%;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.pure-form-stacked input[type="text"],
+.pure-form-stacked input[type="password"],
+.pure-form-stacked input[type="email"],
+.pure-form-stacked input[type="url"],
+.pure-form-stacked input[type="date"],
+.pure-form-stacked input[type="month"],
+.pure-form-stacked input[type="time"],
+.pure-form-stacked input[type="datetime"],
+.pure-form-stacked input[type="datetime-local"],
+.pure-form-stacked input[type="week"],
+.pure-form-stacked input[type="number"],
+.pure-form-stacked input[type="search"],
+.pure-form-stacked input[type="tel"],
+.pure-form-stacked input[type="color"],
+.pure-form-stacked select,
+.pure-form-stacked label,
+.pure-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+.pure-form-aligned input,
+.pure-form-aligned textarea,
+.pure-form-aligned select,
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.pure-form-aligned .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+
+/* Aligned Forms */
+.pure-form-aligned .pure-control-group {
+    margin-bottom: 0.5em;
+}
+.pure-form-aligned .pure-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.pure-form-aligned .pure-controls {
+    margin: 1.5em 0 0 10em;
+}
+
+/* Rounded Inputs */
+form input.pure-input-rounded,
+form .pure-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+form .pure-group fieldset {
+    margin-bottom: 10px;
+}
+form .pure-group input {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+form .pure-group input:focus {
+    z-index: 2;
+}
+form .pure-group input:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+}
+form .pure-group input:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+}
+form .pure-group button {
+    margin: 0.35em 0;
+}
+
+form .pure-input-1 {
+    width: 100%;
+}
+form .pure-input-2-3 {
+    width: 66%;
+}
+form .pure-input-1-2 {
+    width: 50%;
+}
+form .pure-input-1-3 {
+    width: 33%;
+}
+form .pure-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+form .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 90%;
+}
+
+/* Block help for forms */
+.pure-form-message {
+    display: block;
+    color: #666;
+    font-size: 90%;
+}
+
+@media only screen and (max-width : 480px) {
+    form button[type="submit"] {
+        margin: 0.7em 0 0;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"],
+    form input[type="url"],
+    form input[type="date"],
+    form input[type="month"],
+    form input[type="time"],
+    form input[type="datetime"],
+    form input[type="datetime-local"],
+    form input[type="week"],
+    form input[type="number"],
+    form input[type="search"],
+    form input[type="tel"],
+    form input[type="color"],
+    form label {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-group input[type="text"],
+    .pure-group input[type="password"],
+    .pure-group input[type="email"],
+    .pure-group input[type="url"],
+    .pure-group input[type="date"],
+    .pure-group input[type="month"],
+    .pure-group input[type="time"],
+    .pure-group input[type="datetime"],
+    .pure-group input[type="datetime-local"],
+    .pure-group input[type="week"],
+    .pure-group input[type="number"],
+    .pure-group input[type="search"],
+    .pure-group input[type="tel"],
+    .pure-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .pure-form-aligned .pure-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .pure-form-aligned .pure-controls {
+        margin: 1.5em 0 0 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+    form .pure-help-inline,
+    .pure-form-message-inline,
+    .pure-form-message {
+        display: block;
+        font-size: 80%;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2em 0 0.8em;
+    }
+}
+
+/* INLINE-FIELDS
+================================================== */
+.inline-fields {
+    width:100%;height:auto;
+    @include clearfix;
+
+    .inline-input {
+        display:block;
+        float:left;
+        width:75%;
+        margin-right:1%;
+    }
+    .inline-submit {
+        display:block;
+        float:left;
+        width:24%;
+        font-family:"pictos";
+        text-align:center;
+        padding:0;
+    }
+}
+
+
+/* NEWSLETTER WRAPPER
+================================================== */
+$ffw_newsletter_height:         80;
+.ffw_newsletter_wrapper.gform_wrapper {
+    margin:0;padding:0;
+    width:100%;max-width:100%;
+    height:auto;
+    @include clearfix;
+    max-width:100%;
+    
+
+    // validation
+    .validation_error {display:none !important;}
+    .validation_message {display:none !important}
+
+    form ul.gform_fields li.gfield.gfield_error {
+        padding: 0 10px 0 0 !important;
+        margin: 0 !important;
+        background: rgba(0, 0, 0, 0) !important;
+        border: none !important;
+
+        &.gfield_contains_required label.gfield_label {margin-top:5px !important;}
+
+        label.gfield_label {margin-top:5px !important;}
+
+        .ginput_container {max-width:100% !important;}
+
+        .ginput_complex {
+            .ginput_left input[type="text"] { max-width:100% !important; }
+            .ginput_right input[type="text"] { max-width:100% !important; }
+        }
+    }
+
+    
+    // form
+    form {
+        width:100%;height:auto;
+        @include clearfix;
+        
+        .gform_body {
+            float: left;
+            width: 87%;
+
+            ul.gform_fields {
+
+                li.gfield {
+                    width: 50% !important;
+                    float: left;
+                    clear: none;
+                    margin:0 !important;
+                    padding-right:10px !important;
+
+                    input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
+
+                    // ex: first/last name field pair
+                    .ginput_complex {
+                        max-width:100% !important;
+
+                        span.ginput_left {
+                            padding-right: 6px !important;
+                        }
+
+                        span.ginput_left, span.ginput_right {
+                            input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .gform_footer {
+            float: left;
+            width: 13%;
+            clear: none;
+            margin: 0 !important;
+            padding: 0;
+            // height: #{$ffw_newsletter_height}px;
+            padding-top: 32px;
+            
+            button {
+                height:44px;min-height:44px;max-height:44px;
+                line-height: 44px;
+                padding: 0 20px;
+                outline: 1px solid rgba(0, 0, 0, 0);
+                border: 1px solid rgba(0, 0, 0, 0);
+            }
+
+        }
+        
+    }
+
+}

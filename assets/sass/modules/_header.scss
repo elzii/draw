@@ -1,0 +1,93 @@
+/* _header.scss */
+
+
+/* HEADER.default
+================================================== */
+$height-header_default:   130;
+header.default {
+  width:100%;
+  background-color:$backgroundColorHeader;
+  border-bottom:1px solid darken($backgroundColorHeader, 3);
+  @include box-shadow(0 1px 2px rgba(black, .10));
+
+
+  /* LOGO (span4)
+  ================================================== */
+  .logo {
+    @include inline-block;
+    line-height:#{$height-header_default}px;
+
+    h1,h2,h3,p,span {margin:0;}
+
+    a     {}
+    img   {max-height:100%;width:auto;}
+  }
+
+  /* NAV .header_menu (span8 omega)
+  ================================================== */
+  nav {
+    text-align:right;
+    line-height:#{$height-header_default}px;
+    font-size:em(26px);
+    
+    > ul {
+      height:#{$height-header_default}px;;
+      float:right;
+    }
+
+    > ul > li {
+      height:#{$height-header_default}px;
+      // line-height:#{$height-header_default}px;
+      text-transform: uppercase;
+      letter-spacing:1px;
+
+      &:last-child a {padding-right:0;}
+
+      > a {
+        display:block;
+        width:100%;height:100%;
+        line-height:#{$height-header_default}px;;
+        padding-right:em(5px);
+        padding-left:em(5px);
+
+        &#rad_less {}
+        &#rad_more {}
+
+        &.ctrl {
+
+
+          span {
+            font-family:Helvetica,Arial,sans-serif;
+            display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+            position: relative;
+            width:30px;height:30px;line-height:28px;
+            text-align:center;
+            background: #605d52;
+            color: #FAFAFA;
+            font-weight: bold;
+            @include opacity(0.65);
+            @include transition(all 200ms ease-in-out);
+
+            &:hover {
+              @include opacity(1);
+            }
+          }
+        }
+      }
+    }
+  }/* nav */
+
+}
+  
+  /* ------------------------------------------------ */
+  /* HEADER.DEFAULT -> TABLET
+  /* ------------------------------------------------ */
+  @include media(tablet) {
+
+  }
+  /* ------------------------------------------------ */
+  /* HEADER.DEFAULT -> MOBILE
+  /* ------------------------------------------------ */
+  @include media(mobile) {
+    
+  }

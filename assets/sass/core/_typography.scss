@@ -1,0 +1,181 @@
+/* _typography.scss */
+
+
+/**
+ * Headers <h1>, <h2>, <h3>, <h4>, <h5>, <h6>
+ */
+h1, h2, h3, h4, h5, h6 { a {color:inherit;} }
+
+h1,.h1{ }
+h2,.h2{ }
+h3,.h3{ }
+h4,.h4{ }
+h5,.h5{ }
+h6,.h6{ }
+
+
+/**
+ * Anchor styles and defaults
+ */
+a           { font-weight: inherit; font-size: inherit; text-decoration: none; }
+a:hover     { cursor:pointer; }
+a:active    {  }
+a:focus     { outline: 0; }
+a:hover, 
+a:active    { outline: 0; }
+
+/**
+ * Bold, Italics, and other html5 fields
+ */
+abbr[title]   { border-bottom: 1px dotted; }
+b, strong     { font-weight: 800; }
+i             { font-style:normal; }
+dfn           { font-style: italic; }
+ins           { background: #ffffe0; text-decoration: none; }
+mark          { background: #ffffe0;  font-style: italic; font-weight: bold; }
+address       { display: block; }
+q             { quotes: none; }
+q:before, 
+q:after       {
+	content: ""; 
+	content: none; 
+}
+small         { font-size: 50%; }
+
+/**
+ * <pre> and <code> block better styling
+ */
+pre, code, kbd, samp { font-family: monospace; }
+code {
+  background: #eeeeee;
+  color: #2daebf;
+  padding: 3px 5px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  font-size: 14px;
+}
+pre {
+  display: block;
+  overflow: hidden;
+  background: #fefefe;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding:5px;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font:13px monospace;
+}
+
+/**
+ * Super and sub text
+ */
+sub, sup        { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup             { top: -0.5em; }
+sub             { bottom: -0.25em; }
+
+/**
+ * Paragraph
+ */
+p               { font-size:1em; line-height:1.4; }
+p small         { font-size:0.8em; }
+
+
+/**
+ * List style tweaks and defaults
+ */
+ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
+ul            { list-style: none; list-style-type:none; margin:0; padding:0; }
+ul.list       { list-style: disc; list-style-type:disc; margin:0 0 0 15px; padding:0 0 0 15px; }
+ul li         { color:inherit; line-height:1.4; }
+ul li a       { line-height:1; }
+ol            { list-style: decimal; }
+ol.roman      { list-style: upper-roman; }
+li            {  }
+dl            {  }
+dl dt, dl dd  {  }
+dl dt         {  }
+dl dd         { margin-left: 9px; }
+dd            {  }
+
+
+/**
+ * <nav> specific list styling
+ */
+nav ul, 
+nav ol, 
+#nav ul, 
+#nav ol, 
+#navigation ul, 
+#navigation ol, 
+.nav {
+	list-style: none; 
+	list-style-image: none; 
+	margin: 0; 
+	padding: 0; 
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {  }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e3e3e3;
+  margin: 1.35em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+img { vertical-align: middle; }
+
+/* 
+* Flexible Media 
+*/
+img, video, canvas { height: auto; max-width:100%; }
+
+/*
+* Flexible Video iFrame Embed - sample from att theme
+*/
+figure { display:block; position: relative; }
+
+/**
+ * Iframe
+ */
+iframe { }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea { resize: vertical; }
+
+
+/**
+ * Typography helper classes
+ */
+.bold   {font-weight:bold;}
+.italic {font-style:italic;}
+
+
+/**
+ * Misc & browser specific
+ */
+::-moz-selection  { background: #b3d4fc; text-shadow: none; }
+::selection       { background: #b3d4fc; text-shadow: none; }
+

@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+.svn
+_svn
+*.kpf
+*.swp
+.buildpath
+.settings
+*.komodoproject
+.sass-cache
+.sass-cache/
+/.sass-cache/

@@ -1,0 +1,26 @@
+/* _shapes.scss */
+
+
+/* CIRCLE-DATE
+================================================== */
+.circle-date { 
+  width: 130px;height: 130px;
+  display:table;
+  text-align:center;
+  @include border-radius(65px / 65px 65px 65px 65px);
+  @include background-clip(padding-box);
+  @include xbc-transparent-bg(0.10, #000000, 0, 0, 0);
+
+  .circle-date-inner { 
+    display:table-cell;vertical-align:middle; 
+  }
+
+  i, span, b {display:block;@include opacity(.5);color: #353535;line-height:1;}
+  
+  // .icon.icon-cal
+  i {font-size:em(21px);margin-bottom:.15em;}
+  // .date-month
+  span {font-size:em(15px);font-weight: bold;text-transform:uppercase;}
+  // .date-day
+  b    {font-size:em(24px);font-weight: bold;}
+}

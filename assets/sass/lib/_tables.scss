@@ -1,0 +1,77 @@
+/* _tables.scss */
+
+table {
+
+  &.default {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    caption {
+      color: #000;
+      font: italic 85% / 1 arial, sans-serif;
+      padding: 1em 0;
+      text-align: center;
+    }
+    td, th {
+      border-left: 1px solid #cbcbcb;
+      /*  inner column border */
+      border-width: 0 0 0 1px;
+      font-size: inherit;
+      margin: 0;
+      overflow: visible;
+      /*to make ths where the title is really long work*/
+      padding: 6px 12px;
+      /* cell padding */
+    }
+    td:first-child, th:first-child {
+      border-left-width: 0;
+    }
+    thead {
+      background: #e0e0e0;
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+    }
+    td {
+      background-color: transparent;
+    }
+  }
+
+  /**
+   * STRIPING / STYLES
+   * -------------------
+   * even - #fff (white)
+   * odd  - #f2f2f2 (light gray)
+   */
+
+  &.default-odd td, 
+  &.default-striped tr:nth-child(2n-1) td { background-color: #f2f2f2; }
+
+
+  /* BORDERED TABLES */
+  &.default-bordered {
+    td {
+      border-bottom: 1px solid #cbcbcb;
+    }
+    tbody > tr:last-child td {
+      border-bottom-width: 0;
+    }
+  }
+
+  /* HORIZONTAL BORDERED TABLES */
+  &.default-horizontal {
+    tbody > tr:last-child td {
+      border-bottom-width: 0;
+    }
+    td, th {
+      border-width: 0 0 1px 0;
+      border-bottom: 1px solid #cbcbcb;
+    }
+    tbody > tr:last-child td {
+      border-bottom-width: 0;
+    }
+  }
+}
+

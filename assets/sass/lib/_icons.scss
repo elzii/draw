@@ -1,0 +1,222 @@
+/* _icons.scss */
+
+
+/* ICON (pictos)
+================================================== */
+i.icon,.icon  {
+  font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  background-image:none !important;
+
+  &:before  {
+    font-family:"pictos",$pictos;
+    font-weight:normal;
+    font-style:normal;
+    font-size:inherit;
+    text-transform:none;
+  }
+
+  // CIRCLE
+  ///////////////////
+  &.circle {
+    width:86px;height:86px;
+    @include border-radius(43px);
+    background-color:#fff;
+    text-align:center;
+    color:$colorSecondaryDark;
+    font-size:em(32px);
+
+    &:before {
+      display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+      // @include xbc-transparent-bg(0.50, #000); // DEBUG
+      line-height:90px;
+      text-align:center;
+    }
+  }
+  // TRANSPARENT
+  ///////////////////
+  &.transparent {
+    @include xbc-transparent-bg(0.10, #fff, 255,255,255);
+    color:#fff;
+  }
+
+}
+
+
+.icon-upload:before, %icon-upload:before                { content:'c'; }
+.icon-lightning:before, %icon-lightning:before          { content:'e'; }
+.icon-group:before, %icon-group:before                  { content:'g'; }
+.icon-info:before, %icon-info:before                    { content:'i'; }
+.icon-chain:before, %icon-chain:before                  { content:'j'; }
+.icon-heart:before, %icon-heart:before                  { content:'k'; }
+.icon-file:before, %icon-file:before                    { content:'o'; }
+.icon-pencil:before, %icon-pencil:before                { content:'p'; }
+.icon-message:before, %icon-message:before              { content:'q'; }
+.icon-loop:before, %icon-loop:before                    { content:'r'; }
+.icon-search:before, %icon-search:before                { content:'s'; }
+.icon-time:before, %icon-time:before                    { content:'t'; }
+.icon-camera:before, %icon-camera:before                { content:'v'; }
+.icon-chat:before, %icon-chat:before                    { content:'w'; }
+.icon-settings:before, %icon-settings:before            { content:'x'; }
+.icon-cog:before, %icon-cog:before                      { content:'y'; }
+.icon-tag:before, %icon-tag:before                      { content:'z'; }
+.icon-link:before, %icon-link:before                    { content:'A'; }
+.icon-cloud:before, %icon-cloud:before                  { content:'C'; }
+.icon-close:before, %icon-close:before                  { content:'D'; }
+.icon-eye:before, %icon-eye:before                      { content:'E'; }
+.icon-globe:before, %icon-globe:before                  { content:'G'; }
+.icon-home:before, %icon-home:before                    { content:'H'; }
+.icon-key:before, %icon-key:before                      { content:'K'; }
+.icon-email:before, %icon-email:before                  { content:'M'; }
+.icon-news:before, %icon-news:before                    { content:'N'; }
+.icon-picture:before, %icon-picture:before              { content:'P'; }
+.icon-power:before, %icon-power:before                  { content:'Q'; }
+.icon-send:before, %icon-send:before                    { content:'R'; }
+.icon-star:before, %icon-star:before                    { content:'S'; }
+.icon-plane:before, %icon-plane:before                  { content:'P'; }
+.icon-person:before, %icon-person:before                { content:'U'; }
+.icon-video:before, %icon-video:before                  { content:'V'; }
+.icon-write:before, %icon-write:before                  { content:'W'; }
+.icon-pulse:before, %icon-pulse:before                  { content:'Y'; }
+.icon-piechart:before, %icon-piechart:before            { content:'Z'; }
+.icon-expand:before, %icon-expand:before                { content:'`'; }
+.icon-refresh:before, %icon-refresh:before              { content:'1'; }
+.icon-checkmark:before, %icon-checkmark:before          { content:'3'; }
+.icon-calendar:before, %icon-calendar:before            { content:'\005C'; }
+.icon-meter:before, %icon-meter:before                  { content:','; }
+.icon-marker:before, %icon-marker:before                { content:'@'; }
+.icon-trash:before, %icon-trash:before                  { content:'#'; }
+.icon-cart:before, %icon-cart:before                    { content:'$'; }
+.icon-flag:before, %icon-flag:before                    { content:'^'; }
+.icon-plus:before, %icon-plus:before                    { content:'&'; }
+.icon-x:before, %icon-x:before                          { content:'*'; }
+.icon-lock:before, %icon-lock:before                    { content:'('; }
+.icon-unlock:before, %icon-unlock:before                { content:')'; }
+.icon-question:before, %icon-question:before            { content:'?'; }
+
+
+
+/* ICON-BAR
+================================================== */
+.icon-bar {
+  margin-top: 4px;
+  display: block;
+  width: 22px;
+  height: 3px;
+  border-radius: 1px;
+  // background-color:$colorTextDefault;
+  background-color:$colorAnchorDefault;
+}
+
+
+/* ARRROWS
+================================================== */
+i.arr,.arr  {
+  font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  background-image:none !important;
+
+}
+.arr:before {
+  font-family:"arrrows",$arrrows;
+  font-weight:normal;
+  font-style:normal;
+  font-size:inherit;
+  text-transform:none;
+}
+.arr-down:before        {content:'z';}
+
+
+
+/* SOCIALICO
+================================================== */
+i.socialico,.socialico  {
+  font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  background-image:none !important;
+  
+  &.circle:before {
+    text-transform:lowercase;
+  }
+}
+.socialico:before {
+  font-family:"socialico",$social;
+  font-weight:normal; 
+  font-style:normal;
+  font-size:inherit;
+
+}
+// REGULAR
+.socialico-facebook:before        {content:'F';}
+.socialico-twitter:before         {content:'L';}
+.socialico-googleplus:before      {content:'G';}
+.socialico-flickr:before          {content:'N';}
+.socialico-vimeo:before           {content:'V';}
+
+
+[data-icon]:before {
+  font-family: "pictos",$pictos;
+  font-weight:normal;
+  font-style:normal;
+  font-size:inherit;
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}
+
+
+
+
+
+
+/* BASE64 GLYPH
+================================================== */
+%glyph-base64 {
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  width:55px;height:55px;
+  @include bg-shorthand(
+    'data:image/png;base64,',
+    no-repeat,
+    50% 50%,
+    auto auto
+  );
+}
+
+
+
+/* CIRCLE ICONS
+================================================== */
+@mixin circle-icon(
+  $content:     'F',
+  $size:        56,
+  $bg-color:    #fb5247,
+  $font-color:  #fff,
+  $font-size:   27px,
+  $margin:      0 0 7px 0
+) {
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  position:relative;
+  width: #{$size}px;height: #{$size}px;
+  line-height: #{$size}px;
+  @include border-radius(#{$size/2}px);
+  @include background-clip(padding-box);
+  background-color:$bg-color;
+  color:#fff;
+  font-size:$font-size;
+
+  &:before {
+    font-family:"pictos",$pictos;
+    font-weight:normal;
+    font-style:normal;
+    font-size:inherit;
+    text-transform:none;
+    content:$content;
+  }
+}
+
+.circle-icon-paper {
+  @include circle-icon('F');
+}
+.circle-icon-list {
+  @include circle-icon('l');
+  line-height:60px;
+}
+.circle-icon-pencil {
+  @include circle-icon('p');
+}

@@ -1,0 +1,18 @@
+/* _hero.scss */
+
+#hero {
+  background-color:#4a4a4a;
+  color:#fafafa;
+
+  &.default {height:340px;}
+  
+  .container {
+    height:340px;
+    display:table;
+    text-align:center;
+  }
+  .hero-inner {
+    display:table-cell;
+    vertical-align:middle;
+  }
+}
